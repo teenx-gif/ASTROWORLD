@@ -139,7 +139,7 @@ function loadTrack(index) {
     audio.src = tracks[index].file;  
     cover.src = tracks[index].cover;  
     title.textContent = tracks[index].title;  
-    bg.style.backgroundImage = url(${tracks[index].cover});  
+    bg.style.backgroundImage = `url(${tracks[index].cover})`;  
     audio.play();  
 }  
 
@@ -152,7 +152,7 @@ function prevTrack() {
     current = (current - 1 + tracks.length) % tracks.length;  
     loadTrack(current);  
 }  
-bg.style.backgroundImage = url (${tracks[0].cover});  
+bg.style.backgroundImage = `url (${tracks[0].cover})`;  
 
 // Стартовый фон  
 // bg.style.backgroundImage = url(${tracks[0].cover});
@@ -163,3 +163,4 @@ bg.style.backgroundImage = url (${tracks[0].cover});
 </body>
 
 </html>
+
