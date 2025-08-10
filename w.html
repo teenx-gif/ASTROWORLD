@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astroworld Park</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: url('./img/Surreal\ Digital\ Artwork\ Of\ Floating\ Island\ At\ Sunset.png') center/cover no-repeat;
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+        }
+        header {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            background: rgba(0,0,0,0.4);
+            padding: 10px 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+        header h1 {
+            font-size: 2rem;
+            letter-spacing: 2px;
+            color: rgb(255, 255, 255); /* солнечный оранж */
+            text-shadow: 0 0 10px #ffcc70, 0 0 20px #ffcc70;
+        }
+        header p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 8px 15px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+        .back-btn:hover {
+            background: rgba(255,179,71,0.8);
+        }
+        .location {
+            position: absolute;
+            background: rgba(0,0,0,0.6);
+            padding: 5px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: 0.2s;
+        }
+        .location:hover {
+            background: rgba(255,179,71,0.9);
+        }
+        #map-container {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        #map {
+            transform-origin: center center;
+            transition: transform 0.2s ease;
+        }
+    </style>
+</head>
+<body>
+
+<button class="back-btn" onclick="window.location.href='main.html'">← Back to Main</button>
+
+<header>
+    <h1>Astroworld Park</h1>
+    <p>2018 Summer Vibe ☀ VIP Access 🌴</p>
+</header>
+
+<div id="map-container">
+    <!-- <img id="map" src="./img/Surreal Digital Artwork Of Floating Island At Sunset.png" alt="Astroworld Map" width="100%"> -->
+    
+    <div class="location" style="top: 30%; left: 70%;" onclick="alert('Roller Coaster — место для адреналина, открыто с 10:00 до 20:00')">
+         💦 Water Ride
+    </div>
+    <div class="location" style="top: 50%; left: 40%;" onclick="alert('Main Stage — Live Music, 19:00')">
+        🎤 Main Stage
+    </div>
+    <div class="location" style="top: 20%; left: 25%;" onclick="alert('Food Plaza — VIP treats available')">
+        🍔 Food Plaza
+    </div>
+    <div class="location" style="top: 60%; left: 75%;" onclick="alert('Water Ride — Splash Zone, открыто с 11:00 до 19:00')">
+       
+        🎢 Roller Coaster
+    </div>
+</div>
+
+<script>
+    let scale = 1;
+    const map = document.getElementById('map');
+
+    window.addEventListener('wheel', function(e) {
+        e.preventDefault();
+        if (e.deltaY < 0 && scale < 3) {
+            scale += 0.1;
+        } else if (e.deltaY > 0 && scale > 1) {
+            scale -= 0.1;
+        }
+        map.style.transform = `scale(${scale})`;
+    });
+</script>
+
+</body>
+</html>
